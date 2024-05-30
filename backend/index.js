@@ -34,6 +34,7 @@ app.get('/:address/transactions', async (req, res) => {
       await Moralis.EvmApi.transaction.getWalletTransactionsVerbose({
         address: address, // wallet address
         chain,
+        limit: 25,
       });
 
     return res.status(200).json(response);

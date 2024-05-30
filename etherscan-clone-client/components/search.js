@@ -19,7 +19,6 @@ export default function Search() {
 
   const handleSearch = async () => {
     try {
-      document.querySelector('#inputField').value = '';
       const res = await axios.get(getTxApi(searchInput));
       setResult(res.data.result);
       setShowResult(true);
@@ -42,6 +41,7 @@ export default function Search() {
               maxLength='120'
               placeholder='Search by Address / Txn Hash / Block / Token / Domain Name'
               required
+              value={searchInput}
               onChange={changeHandler}
             />
             <button className={styles.btn} onClick={handleSearch}>
